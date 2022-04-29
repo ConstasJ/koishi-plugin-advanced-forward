@@ -1,0 +1,38 @@
+{
+  "name": "koishi-plugin-advanced-forward",
+  "version": "1.0.0",
+  "description": "Conditional Forwarding Plugin for koishi.js(https://koishi.js.org)",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConstasJ/koishi-plugin-advanced-forward.git"
+  },
+  "keywords": [
+    "Koishi.js",
+    "qqbot",
+    "cqhttp",
+    "onebot",
+    "optional:database"
+  ],
+  "author": "ConstasJ <constasj@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ConstasJ/koishi-plugin-advanced-forward/issues"
+  },
+  "homepage": "https://github.com/ConstasJ/koishi-plugin-advanced-forward#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.30",
+    "koishi": "^4.6.1",
+    "rollup": "^2.70.2",
+    "rollup-plugin-ts": "^2.0.7",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "packageManager": "pnpm@7.0.0-rc.9",
+  "peerDependencies": {
+    "koishi": "^4.6.1"
+  }
+}
