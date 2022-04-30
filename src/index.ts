@@ -28,6 +28,50 @@ async function apply(ctx: Context,opts:Config) {
     });
     const cmd=ctx.command('cond-forward','更加高级的条件转发功能')
         .alias('cfwd');
+    cmd.subcommand('.add <source> <target>','添加转发',{authority:3})
+        .option('user','-U <user> 添加用户过滤器')
+        .option('flag','-F <flag> 添加标签过滤器')
+        .usage('请使用JSON数组形式指定目标频道/过滤器选项！')
+        .check(({options})=>{
+            if(JSON.stringify(options)==='{}') return '错误：未指定过滤器！';
+        })
+        .action(async ({session,options},src,tgt)=>{
+            if(options?.user){
+                const target=JSON.parse(tgt);
+                const user=JSON.parse(options.user);
+                try{
+                    await ctx.database.create('cforward', {
+                        source: src,
+                        target: target,
+                        filter: {
+                            type: 'user',
+                            data: user,
+                        }
+                    });
+                    return '添加成功！';
+                }catch (e) {
+                    ctx.logger('cforward').error(`Error occured:${e}`)
+                    return '发生错误';
+                }
+            }else{
+                const target=JSON.parse(tgt);
+                const flag=JSON.parse(options?.flag);
+                try{
+                    await ctx.database.create('cforward', {
+                        source: src,
+                        target: target,
+                        filter: {
+                            type: 'flag',
+                            data: flag,
+                        }
+                    });
+                    return '添加成功！';
+                }catch (e) {
+                    ctx.logger('cforward').error(`Error occured:${e}`)
+                    return '发生错误';
+                }
+            }
+        })
 }
 
 export {name, schema, using, apply}
