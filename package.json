@@ -3,6 +3,7 @@
   "version": "1.0.0-alpha.0",
   "description": "Conditional Forwarding Plugin for koishi.js(https://koishi.js.org)",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "prerelease": "git checkout master && git merge develop && pnpm run build",
