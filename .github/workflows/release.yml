@@ -20,7 +20,7 @@ jobs:
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
