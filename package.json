@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-advanced-forward",
-  "version": "1.0.0-alpha.1",
+  "version": "0.0.0-development",
   "description": "Conditional Forwarding Plugin for koishi.js(https://koishi.js.org)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -8,11 +8,12 @@
     "build": "rollup -c",
     "prerelease": "git checkout master && git merge develop && pnpm run build",
     "release": "standard-version",
-    "postrelease": "git push --follow-tags origin master && pnpm publish --registry=https://registry.npmjs.org && git checkout develop && git merge master && git push"
+    "postrelease": "git push --follow-tags origin master && pnpm publish --registry=https://registry.npmjs.org && git checkout develop && git merge master && git push",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ConstasJ/koishi-plugin-advanced-forward.git"
+    "url": "https://github.com/ConstasJ/koishi-plugin-advanced-forward.git"
   },
   "keywords": [
     "Koishi.js",
@@ -34,10 +35,14 @@
     "rollup-plugin-ts": "^2.0.7",
     "standard-version": "^9.3.2",
     "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "semantic-release": "^19.0.2"
   },
-  "packageManager": "pnpm@7.0.0-rc.9",
+  "packageManager": "pnpm@7.0.0",
   "peerDependencies": {
     "koishi": "^4.6.1"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
