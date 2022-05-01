@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - next
+      - alpha
 jobs:
   release:
     name: Release

@@ -75,12 +75,25 @@ async function apply(ctx: Context, opts: Config) {
     cmd.subcommand('list', '查看转发规则')
         .action(async ({session}) => {
             const rules = await ctx.database.get('cforward', {source: `${session?.platform}:${session?.channelId}`});
-            if (session?.send) await showRules(session.send, rules);
-            else return '错误：session.send为undefined！'
+            return showRules(rules);
         });
     cmd.subcommand('.remove', '移除转发规则', {authority: 3})
-        .action(async ({}) => {
-
+        .action(async ({session}) => {
+            const rules = await ctx.database.get('cforward', {source: `${session?.platform}:${session?.channelId}`});
+            await session?.send(showRules(rules) + '\n请输入您想移除的规则');
+            const choRaw = await session?.prompt(60000);
+            if (isNaN(Number(choRaw))) return '错误：请输入一个数字！'
+            const cho = Number(choRaw);
+            const dRule = rules[cho - 1];
+            try {
+                await ctx.database.remove('cforward', {
+                    id: dRule.id,
+                });
+                return '删除成功！';
+            } catch (e) {
+                ctx.logger('cforward').error(e);
+                return '发生错误！';
+            }
         });
     cmd.subcommand('.clear', '移除本频道所有转发规则', {authority: 3})
         .action(async ({session})=>{
