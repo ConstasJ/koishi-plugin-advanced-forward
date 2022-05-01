@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.1](https://github.com/ConstasJ/koishi-plugin-advanced-forward/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2022-05-01)
+
+
+### Features
+
+* Complete cfwd.list command. ([9eca05c](https://github.com/ConstasJ/koishi-plugin-advanced-forward/commit/9eca05c14ae525cc48a71f1275b005b635aab4f8))
+
 ## 1.0.0-alpha.0 (2022-05-01)
 
 
