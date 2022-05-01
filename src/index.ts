@@ -1,7 +1,7 @@
 import {Context, Schema} from 'koishi';
 import {Config, Rule} from "./consts";
 import {DRule, getRules, initDB} from "./db";
-import {arrayDeduplicate} from "./utils";
+import {arrayDeduplicate, showRules} from "./utils";
 import {defaultFilter} from "./filter";
 
 const name = 'advanced-forward';
@@ -73,8 +73,10 @@ async function apply(ctx: Context, opts: Config) {
             }
         });
     cmd.subcommand('list', '查看转发规则')
-        .action(async ({}) => {
-
+        .action(async ({session}) => {
+            const rules = await ctx.database.get('cforward', {source: `${session?.platform}:${session?.channelId}`});
+            if (session?.send) await showRules(session.send, rules);
+            else return '错误：session.send为undefined！'
         });
     cmd.subcommand('.remove', '移除转发规则', {authority: 3})
         .action(async ({}) => {
