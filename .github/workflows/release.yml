@@ -5,6 +5,7 @@ on:
       - master
       - next
       - alpha
+      - beta
 jobs:
   release:
     name: Release
