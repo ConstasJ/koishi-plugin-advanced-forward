@@ -1,5 +1,5 @@
 import {Context} from 'koishi';
-import { Filter } from './consts';
+import {Filter} from './consts';
 
 declare module 'koishi'{
     interface Tables{
@@ -14,17 +14,15 @@ export interface DRule{
     target:string[],
 }
 
-export function initDB(ctx:Context){
-    ctx.on('ready',async ()=>{
-        ctx.database.extend('cforward',{
-            id:'integer',
-            source:'string',
-            filter:'json',
-            target:'list',
-        },{
-            primary:'id',
-            autoInc:true,
-        });
+export function initDB(ctx:Context) {
+    ctx.database.extend('cforward', {
+        id: 'integer',
+        source: 'string',
+        filter: 'json',
+        target: 'list',
+    }, {
+        primary: 'id',
+        autoInc: true,
     });
 }
 
