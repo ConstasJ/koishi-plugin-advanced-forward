@@ -13,3 +13,7 @@ export function showRules(rules: DRule[]) {
     }
     return txn;
 }
+
+export function parseDotInArr(str: string) {
+    return str.split(',');
+}

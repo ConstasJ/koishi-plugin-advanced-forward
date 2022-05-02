@@ -1,7 +1,7 @@
 import {Context, Schema} from 'koishi';
 import {Config, Rule} from "./consts";
 import {DRule, getRules, initDB} from "./db";
-import {arrayDeduplicate, showRules} from "./utils";
+import {arrayDeduplicate, parseDotInArr, showRules} from "./utils";
 import {defaultFilter} from "./filter";
 
 const name = 'advanced-forward';
@@ -39,8 +39,8 @@ export default async function apply(ctx: Context, opts: Config) {
             .action(async ({session, options}, tgt, src) => {
                 src = (src) ? src : `${session?.platform}:${session?.channelId}`;
                 if (options?.user) {
-                    const target = JSON.parse(tgt);
-                    const user = JSON.parse(options.user);
+                    const target = parseDotInArr(tgt);
+                    const user = parseDotInArr(options.user);
                     try {
                         await ctx.database.create('cforward', {
                             source: src,
@@ -56,8 +56,8 @@ export default async function apply(ctx: Context, opts: Config) {
                         return '发生错误';
                     }
                 } else {
-                    const target = JSON.parse(tgt);
-                    const flag = JSON.parse(options?.flag);
+                    const target = parseDotInArr(tgt);
+                    const flag = parseDotInArr(options?.flag);
                     try {
                         await ctx.database.create('cforward', {
                             source: src,
