@@ -1,3 +1,4 @@
+name: Release(Alpha)
 on:
   push:
     branches:
