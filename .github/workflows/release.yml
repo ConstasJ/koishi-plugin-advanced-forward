@@ -5,13 +5,6 @@ on:
       - master
       - next
       - beta
-  pull_request:
-    types:
-      - opened
-    branches:
-      - master
-      - next
-      - beta
 jobs:
   test:
     name: Test
