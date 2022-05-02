@@ -1,44 +1,16 @@
-name: Release
 on:
   push:
     branches:
-      - master
-      - next
-      - beta
+      - alpha
   pull_request:
     types:
       - opened
     branches:
-      - master
-      - next
-      - beta
+      - alpha
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    environment: Release
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 'lts/*'
-      - name: Install pnpm
-        run: npm i -g pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run tests.
-        run: pnpm test
-        env:
-          CI: true
   release:
-    name: Release
     runs-on: ubuntu-latest
     environment: Release
-    needs: [ test ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
