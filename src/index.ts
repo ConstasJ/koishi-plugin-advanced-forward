@@ -11,7 +11,7 @@ const schema = Schema.object({
 })
 const using = ['database'] as const;
 
-async function apply(ctx: Context, opts: Config) {
+export default async function apply(ctx: Context, opts: Config) {
     initDB(ctx);
     ctx.middleware(async (session, next) => {
         const crule = opts.rule;
