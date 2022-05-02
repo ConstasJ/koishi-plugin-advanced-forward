@@ -18,7 +18,7 @@ export default async function apply(ctx: Context, opts: Config) {
         crule.push(...(await getRules(ctx)));
         const rules: DRule[] = arrayDeduplicate(crule);
         for (const rule of rules) {
-            if (rule.source === `${session.platform}:${session.channelId}`) {
+            if (rule.source === `${session.cid}`) {
                 if (defaultFilter(rule.filter, session)) {
                     if (session.content) await ctx.broadcast(rule.target, `${session.username}:${session.content}`);
                 }
