@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ConstasJ/koishi-plugin-advanced-forward/compare/v1.1.2...v1.2.0) (2022-05-03)
+
+
+### Features
+
+* **command:** Change the format used in cfwd.add command's target,user filter and flag filter. ([2b11246](https://github.com/ConstasJ/koishi-plugin-advanced-forward/commit/2b112460fbdef59eab5e50e52bfbb78a9f547293))
+
 ## [1.1.2](https://github.com/ConstasJ/koishi-plugin-advanced-forward/compare/v1.1.1...v1.1.2) (2022-05-02)
 
 
