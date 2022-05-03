@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/ConstasJ/koishi-plugin-advanced-forward#readme",
   "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "@koishijs/plugin-database-memory": "^1.2.0",
     "@koishijs/plugin-mock": "^1.0.4",
     "@semantic-release/changelog": "^6.0.1",
@@ -36,6 +38,7 @@
     "chai": "^4.3.6",
     "chai-shape": "^1.0.0",
     "cosmotype": "^1.0.7",
+    "husky": "^7.0.4",
     "jest-mock": "^28.0.2",
     "koishi": "^4.6.1",
     "mocha": "^10.0.0",
