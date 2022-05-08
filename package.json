@@ -1,6 +1,6 @@
 {
     "name": "koishi-plugin-advanced-forward",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Conditional Forwarding Plugin for koishi.js(https://koishi.js.org)",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",

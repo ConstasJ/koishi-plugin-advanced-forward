@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ConstasJ/koishi-plugin-advanced-forward/compare/v1.2.0...v1.2.1) (2022-05-08)
+
+
+### Bug Fixes
+
+* fix the content style ([a10902e](https://github.com/ConstasJ/koishi-plugin-advanced-forward/commit/a10902e098e4786016da240c78443f1645bf9362))
+
 # [1.2.0](https://github.com/ConstasJ/koishi-plugin-advanced-forward/compare/v1.1.2...v1.2.0) (2022-05-03)
 
 
