@@ -11,7 +11,7 @@ export function defaultFilter(filter:Filter,session:Session){
         }
         case "flag":{
             for(const ret of filter.data){
-                if (session.content?.match(RegExp(`.*\[${ret}\].*`))) return true;
+                if (session.content?.match(RegExp(`.*[${ret}].*`))) return true;
             }
             return false;
         }

@@ -65,7 +65,7 @@ describe('The Conditional Forwarding Plugin for Koishi.js', () => {
             expect(send.mock.calls).to.have.length(0);
             await cli1.shouldNotReply('Hello!');
             expect(send.mock.calls).to.have.length(1);
-            expect(send.mock.calls).to.have.shape([['654', '123:Hello!']])
+            expect(send.mock.calls).to.have.shape([['654', 'Hello!']])
             send.mockClear();
         });
         it('Should correctly forwarding the FLAG CONDITION messages.', async () => {
@@ -74,7 +74,7 @@ describe('The Conditional Forwarding Plugin for Koishi.js', () => {
             expect(send.mock.calls).to.have.length(0);
             await cli1.shouldNotReply('[ASDD]Hello!');
             expect(send.mock.calls).to.have.length(1);
-            expect(send.mock.calls).to.have.shape([['654', '123:[ASDD]Hello!']]);
+            expect(send.mock.calls).to.have.shape([['654', '[ASDD]Hello!']]);
         })
     })
     afterEach(async () => {

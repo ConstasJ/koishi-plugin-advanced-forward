@@ -21,7 +21,7 @@ export default async function apply(ctx: Context, opts: Config) {
             for (const rule of rules) {
                 if (rule.source === `${session.cid}`) {
                     if (defaultFilter(rule.filter, session)) {
-                        if (session.content) await ctx.broadcast(rule.target, `${session.username}:${session.content}`);
+                        if (session.content) await ctx.broadcast(rule.target, `${session.content}`);
                     }
                 }
             }
